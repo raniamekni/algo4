@@ -1,0 +1,40 @@
+PROCEDURE inseritionSort(arr, n)
+VAR 
+    i, j, key : INTEGER;
+BENGIN
+    FOR i FROM 1 TO n STEP 1 DO
+        key := arr[i];
+        j := i - 1;
+        WHILE (j >= 0 and arr[j] > key) DO
+            arr[j + 1] := arr[j];
+            j := j - 1;
+        END_WHILE
+        arr[j + 1] := key;
+        i := i + 1;
+    END_FOR
+END
+
+-----------------------------------------------------------------------------------------------
+
+PROCEDURE printArray(arr, n)
+VAR 
+    i: INTEGER;
+BEGIN
+    FOR i FROM 0 TO n STEP 1 DO
+        write(arr[i] + " ");
+        i := i + 1;
+    END_FOR
+END
+
+------------------------------------------------------------------------------------------------
+
+ALGORITHM sortingSearch
+VAR 
+    arr: array_of_integer[n];
+    n: INTEGER;
+BENGIN
+    arr := [10, 11, 13, -5, 7];
+    n := arr.length;
+    inseritionSort(arr, n);
+    printArray(arr, n);
+END
